@@ -1,0 +1,82 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>เพิ่มลบ ตัวเลข</title>
+        <style>
+            #results{
+                border: 1px solid #ff0000;
+            }
+            #search{
+                border: 1px solid #000000;
+                padding: 10px;
+                margin-top: 10px;
+            }
+            .result-box{
+                margin-top: 10px;
+                padding: 10px;
+                background-color: #eeeeee;
+            }
+            .font-size-18{
+                font-size: 18px;
+            }
+            .font-size-30{
+                font-size: 30px;
+            }
+            .font-size-22{
+                font-size: 22px;
+            }
+            .color-black{
+                color: black;
+            }
+            .color-orange{
+                color: orange;
+            }
+            .color-brown{
+                color: brown;
+            }
+            .text-center{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body class="text-center">
+        <h1 class="color-black font-size-18">เพิ่มชุดตัวเลข</h1>
+        <div id="displayNumber"></div>
+        <p>
+            <input type="text" id="number">
+        </p>
+        <p>
+            <button onclick="manage.add()">เพิ่ม</button>
+        </p>
+        <p>
+            <button onclick="manage.reduce()">ลบ</button>
+        </p>
+    </body>
+    <script>
+        var numbers = []
+        var manage = {
+            add: function (){
+                var number = document.getElementById('number').value
+                if(number > 10000){
+                    numbers.push(number)
+                    displayNumbers()
+                }
+            },
+            reduce: function (){
+                numbers.splice(-1,1)
+                displayNumbers()
+            },
+        }
+
+        function displayNumbers() {
+            var text = ""
+            if(numbers.length > 0){
+                for (let index = 0; index < numbers.length; index++) {
+                    text += "<p>" + numbers[index] + "</p>"
+                }
+            }
+            document.getElementById('displayNumber').innerHTML = text
+        }
+    </script>
+</html>
